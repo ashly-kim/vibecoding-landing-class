@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스마트 영어학원 설명회 | 원어민 말하기 수업 공개 시연</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue-dark: #1a3a6b;
+      --blue-mid: #2563eb;
+      --blue-light: #dbeafe;
+      --orange: #f97316;
+      --orange-dark: #ea580c;
+      --white: #ffffff;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-600: #475569;
+      --gray-800: #1e293b;
+    }
+
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      color: var(--gray-800);
+      line-height: 1.6;
+    }
+
+    /* ── CTA 버튼 ── */
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      color: var(--white);
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 18px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(249,115,22,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(249,115,22,0.5); }
+    .cta-badge {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-top: 4px;
+      opacity: 0.9;
+    }
+
+    /* ─────────────────────────────────────────
+       ① 헤더
+    ───────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(160deg, var(--blue-dark) 0%, #1e4fa8 60%, #2563eb 100%);
+      color: var(--white);
+      padding: 60px 20px 70px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 240px; height: 240px;
+      background: rgba(249,115,22,0.12);
+      border-radius: 50%;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(249,115,22,0.25);
+      border: 1px solid rgba(249,115,22,0.6);
+      color: #fdba74;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 18px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+    .hero h1 {
+      font-size: clamp(1.6rem, 5vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 16px;
+      word-break: keep-all;
+    }
+    .hero h1 em {
+      color: #fbbf24;
+      font-style: normal;
+      display: block;
+    }
+    .hero-sub {
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-bottom: 32px;
+      word-break: keep-all;
+    }
+
+    .hero-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+    .hero-info-item {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      padding: 10px 18px;
+      font-size: 0.9rem;
+    }
+    .hero-info-item strong { display: block; font-size: 0.75rem; opacity: 0.7; margin-bottom: 2px; }
+
+    .seats-warning {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(249,115,22,0.2);
+      border: 1px solid rgba(249,115,22,0.5);
+      color: #fdba74;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 30px;
+      margin-bottom: 28px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    /* ─────────────────────────────────────────
+       공통 섹션 래퍼
+    ───────────────────────────────────────── */
+    .section { padding: 64px 20px; }
+    .section-inner { max-width: 760px; margin: 0 auto; }
+    .section-label {
+      display: inline-block;
+      background: var(--blue-light);
+      color: var(--blue-mid);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+    .section-title {
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      font-weight: 800;
+      color: var(--blue-dark);
+      margin-bottom: 12px;
+      word-break: keep-all;
+    }
+    .section-desc {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      word-break: keep-all;
+    }
+    .divider {
+      width: 48px; height: 4px;
+      background: var(--orange);
+      border-radius: 2px;
+      margin: 16px 0 32px;
+    }
+
+    /* ─────────────────────────────────────────
+       ② 문제 제기
+    ───────────────────────────────────────── */
+    .problem { background: var(--gray-100); }
+
+    .problem-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .problem-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px 22px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border-top: 4px solid var(--blue-mid);
+    }
+    .problem-card .icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+    .problem-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-bottom: 8px;
+    }
+    .problem-card p {
+      font-size: 0.88rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+
+    /* ─────────────────────────────────────────
+       ③ 해결책
+    ───────────────────────────────────────── */
+    .solution { background: var(--white); }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .solution-card {
+      background: linear-gradient(135deg, var(--blue-dark), #1e4fa8);
+      color: var(--white);
+      border-radius: 16px;
+      padding: 30px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .solution-card::after {
+      content: '';
+      position: absolute;
+      top: -20px; right: -20px;
+      width: 80px; height: 80px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+    .solution-card .num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: rgba(251,191,36,0.4);
+      margin-bottom: 8px;
+    }
+    .solution-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .solution-card p {
+      font-size: 0.85rem;
+      opacity: 0.82;
+      line-height: 1.65;
+    }
+
+    /* ─────────────────────────────────────────
+       ④ 타임테이블
+    ───────────────────────────────────────── */
+    .timetable { background: var(--gray-100); }
+
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--blue-mid), var(--orange));
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      background: var(--white);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -26px; top: 22px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--blue-mid);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--blue-mid);
+    }
+    .timeline-item:last-child::before { background: var(--orange); box-shadow: 0 0 0 2px var(--orange); }
+    .timeline-time {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--blue-mid);
+      margin-bottom: 4px;
+    }
+    .timeline-title {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--gray-800);
+    }
+    .timeline-note {
+      font-size: 0.82rem;
+      color: var(--gray-600);
+      margin-top: 4px;
+    }
+
+    /* ─────────────────────────────────────────
+       ⑤ 강사 소개
+    ───────────────────────────────────────── */
+    .teachers { background: var(--white); }
+
+    .teacher-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .teacher-card {
+      background: var(--gray-100);
+      border-radius: 16px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+    .teacher-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+    .teacher-avatar.principal { background: linear-gradient(135deg, #1a3a6b, #2563eb); }
+    .teacher-avatar.native1 { background: linear-gradient(135deg, #0ea5e9, #38bdf8); }
+    .teacher-avatar.native2 { background: linear-gradient(135deg, #10b981, #34d399); }
+
+    .teacher-card .name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--blue-dark);
+      margin-bottom: 4px;
+    }
+    .teacher-card .role {
+      font-size: 0.82rem;
+      color: var(--orange);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .teacher-card .desc {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 12px;
+    }
+    .tag {
+      background: var(--blue-light);
+      color: var(--blue-dark);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* ─────────────────────────────────────────
+       ⑥ 학부모 후기
+    ───────────────────────────────────────── */
+    .reviews { background: var(--gray-100); }
+
+    .review-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .review-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 26px 22px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: relative;
+    }
+    .review-card::before {
+      content: '"';
+      position: absolute;
+      top: 12px; left: 18px;
+      font-size: 3.5rem;
+      color: var(--blue-light);
+      font-family: serif;
+      line-height: 1;
+    }
+    .stars {
+      color: #fbbf24;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .review-text {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+      margin-bottom: 16px;
+      padding-top: 8px;
+    }
+    .review-author {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+    }
+    .review-author span {
+      font-weight: 400;
+      color: var(--gray-600);
+    }
+
+    /* ─────────────────────────────────────────
+       ⑦ 혜택
+    ───────────────────────────────────────── */
+    .benefit {
+      background: linear-gradient(135deg, var(--blue-dark), #1e4fa8);
+      color: var(--white);
+    }
+    .benefit .section-label {
+      background: rgba(255,255,255,0.15);
+      color: #fde68a;
+    }
+    .benefit .section-title { color: var(--white); }
+    .benefit .divider { background: #fbbf24; }
+
+    .benefit-box {
+      background: rgba(255,255,255,0.1);
+      border: 2px solid rgba(249,115,22,0.6);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .benefit-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+    .benefit-title {
+      font-size: clamp(1.2rem, 4vw, 1.6rem);
+      font-weight: 800;
+      color: #fde68a;
+      margin-bottom: 8px;
+    }
+    .benefit-desc {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      line-height: 1.7;
+    }
+
+    .benefit-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+    .benefit-item {
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .benefit-item .dot {
+      width: 8px; height: 8px;
+      background: var(--orange);
+      border-radius: 50%;
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+    .benefit-item p {
+      font-size: 0.88rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* ─────────────────────────────────────────
+       ⑧ 최종 CTA
+    ───────────────────────────────────────── */
+    .cta-section {
+      background: var(--white);
+      text-align: center;
+      padding: 64px 20px;
+    }
+    .cta-section .section-title { color: var(--blue-dark); }
+    .cta-section .section-desc { margin-bottom: 32px; }
+
+    /* ─────────────────────────────────────────
+       푸터
+    ───────────────────────────────────────── */
+    footer {
+      background: var(--gray-800);
+      color: rgba(255,255,255,0.55);
+      font-size: 0.82rem;
+      text-align: center;
+      padding: 30px 20px;
+      line-height: 1.8;
+    }
+
+    /* ─────────────────────────────────────────
+       반응형
+    ───────────────────────────────────────── */
+    @media (max-width: 520px) {
+      .section { padding: 48px 16px; }
+      .cta-btn { width: 100%; text-align: center; }
+      .timeline { padding-left: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ① 헤더 + 상단 CTA -->
+<section class="hero">
+  <div style="position:relative;z-index:1;">
+    <div class="hero-badge">★ 2026년 4월 5일(일) 오전 11시 — 선착순 20명</div>
+    <h1>
+      우리 아이 영어 말하기,<br>
+      <em>이제 자신감이 달라집니다</em>
+    </h1>
+    <p class="hero-sub">
+      원어민 강사 100% · 소수정예 6명 · 말하기 중심 수업<br>
+      스마트 영어학원 공개 설명회에서 직접 확인하세요
+    </p>
+
+    <div class="hero-info">
+      <div class="hero-info-item">
+        <strong>일시</strong>
+        2026. 04. 05(일) 11:00 – 12:30
+      </div>
+      <div class="hero-info-item">
+        <strong>장소</strong>
+        스마트 영어학원 2층 세미나실
+      </div>
+      <div class="hero-info-item">
+        <strong>대상</strong>
+        초등 3 – 6학년 학부모님
+      </div>
+    </div>
+
+    <div class="seats-warning">
+      ⚡ 잔여 좌석 얼마 남지 않았습니다! 선착순 20명 한정
+    </div>
+
+    <a href="#apply" class="cta-btn">
+      지금 바로 무료 신청하기 →
+      <span class="cta-badge">선착순 20명 · 무료 입장</span>
+    </a>
+  </div>
+</section>
+
+<!-- ② 문제 제기 -->
+<section class="section problem">
+  <div class="section-inner">
+    <span class="section-label">혹시 우리 아이도?</span>
+    <h2 class="section-title">시험 영어는 잘 하는데<br>원어민 앞에서 얼어버리는 아이</h2>
+    <div class="divider"></div>
+    <p class="section-desc" style="margin-bottom:28px;">
+      읽고 쓰는 영어는 곧잘 하지만, 실제로 말해야 하는 순간 입이 굳어버리는 경험,<br>
+      혹시 우리 아이 이야기 같지 않으신가요?
+    </p>
+    <div class="problem-cards">
+      <div class="problem-card">
+        <div class="icon">📚</div>
+        <h3>시험 점수는 높은데…</h3>
+        <p>어휘·문법 문제는 척척 풀지만 막상 말하기에 자신감이 없어요.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">🗣️</div>
+        <h3>원어민 앞에서 꽁꽁</h3>
+        <p>외국인을 만나는 순간 배운 것이 다 사라진 것처럼 말 한 마디도 못해요.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">⏳</div>
+        <h3>학원 다녀도 제자리</h3>
+        <p>수업 시간 내내 강사 말만 듣다 끝나서 아이가 입을 열 기회가 없어요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ③ 해결책 -->
+<section class="section solution">
+  <div class="section-inner">
+    <span class="section-label">스마트 영어학원의 답</span>
+    <h2 class="section-title">말해야 실력이 늘어납니다<br>우리는 처음부터 다릅니다</h2>
+    <div class="divider"></div>
+    <div class="solution-grid">
+      <div class="solution-card">
+        <div class="num">01</div>
+        <h3>원어민 1:1 말하기 집중 수업</h3>
+        <p>미국·캐나다 출신 원어민 강사가 아이 한 명 한 명과 직접 대화하며 이끌어냅니다.</p>
+      </div>
+      <div class="solution-card">
+        <div class="num">02</div>
+        <h3>수업 내내 영어로만</h3>
+        <p>한국어 없는 완전 영어 환경. 자연스럽게 영어로 생각하고 말하는 뇌를 만듭니다.</p>
+      </div>
+      <div class="solution-card">
+        <div class="num">03</div>
+        <h3>최대 6명 소수정예</h3>
+        <p>한 수업에 6명만 받아 모든 아이가 충분히 말할 기회를 가집니다. 묻히는 아이가 없습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ④ 타임테이블 -->
+<section class="section timetable">
+  <div class="section-inner">
+    <span class="section-label">설명회 일정</span>
+    <h2 class="section-title">이날 무엇을 보여드리나요?</h2>
+    <div class="divider"></div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">11:00</div>
+        <div class="timeline-title">원장님 인사 및 학원 소개</div>
+        <div class="timeline-note">15년 경력, 대치동 출신 원장님이 학원 철학과 교육 방향을 직접 말씀드립니다.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">11:15</div>
+        <div class="timeline-title">원어민 강사 영어 말하기 수업 공개 시연</div>
+        <div class="timeline-note">학생이 직접 수업에 참여합니다. 실제 수업 그대로를 눈으로 확인하세요.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">11:45</div>
+        <div class="timeline-title">학부모 질의응답</div>
+        <div class="timeline-note">궁금하셨던 점을 원장님·강사님께 직접 물어보세요.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">12:00</div>
+        <div class="timeline-title">개별 상담 신청 접수 및 학원 투어</div>
+        <div class="timeline-note">수업 환경을 직접 둘러보고, 우리 아이에게 맞는 반을 상담받아 보세요.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑤ 강사 소개 -->
+<section class="section teachers">
+  <div class="section-inner">
+    <span class="section-label">강사 소개</span>
+    <h2 class="section-title">아이를 진심으로 이해하는<br>전문 강사진을 소개합니다</h2>
+    <div class="divider"></div>
+    <div class="teacher-cards">
+      <div class="teacher-card">
+        <div class="teacher-avatar principal">👩‍💼</div>
+        <div class="name">김지현 원장</div>
+        <div class="role">원장 · 총괄 커리큘럼</div>
+        <p class="desc">영어교육 전공 석사, 대치동 유명 어학원 15년 경력. 아이마다 다른 언어 습득 속도를 존중하는 맞춤형 교육을 추구합니다.</p>
+        <div class="tag-list">
+          <span class="tag">경력 15년</span>
+          <span class="tag">대치동 출신</span>
+          <span class="tag">영어교육 석사</span>
+        </div>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-avatar native1">👨‍🏫</div>
+        <div class="name">James Miller</div>
+        <div class="role">원어민 강사 (미국)</div>
+        <p class="desc">미국 오하이오 주립대 아동교육학 전공. 초등 영어 말하기 교육 8년 경력. 수줍은 아이도 편하게 말할 수 있게 만드는 베테랑입니다.</p>
+        <div class="tag-list">
+          <span class="tag">미국 출신</span>
+          <span class="tag">아동교육 전공</span>
+          <span class="tag">8년 경력</span>
+        </div>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-avatar native2">👩‍🏫</div>
+        <div class="name">Sarah Park</div>
+        <div class="role">원어민 강사 (캐나다)</div>
+        <p class="desc">캐나다 UBC 초등교육 전공. 아이들의 눈높이에서 대화하는 능력이 탁월하며, 영어가 두려운 아이들을 웃게 만드는 강사입니다.</p>
+        <div class="tag-list">
+          <span class="tag">캐나다 출신</span>
+          <span class="tag">UBC 졸업</span>
+          <span class="tag">초등교육 전공</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑥ 학부모 후기 -->
+<section class="section reviews">
+  <div class="section-inner">
+    <span class="section-label">학부모 후기</span>
+    <h2 class="section-title">아이들이 달라졌다는<br>생생한 이야기를 들어보세요</h2>
+    <div class="divider"></div>
+    <div class="review-cards">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">
+          6개월 전까지만 해도 외국인을 보면 고개를 푹 숙이던 아이가, 이제는 엘리베이터에서 외국인을 만나면 먼저 말을 건네요. 학원에서 영어를 '말하는 언어'로 배운 덕분인 것 같아요. 선생님들이 아이를 정말 좋아해 주시고, 수업 분위기가 너무 따뜻해서 아이가 학원 가는 날을 기다립니다.
+        </p>
+        <div class="review-author">최지수 학부모 <span>· 초등 4학년 자녀</span></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">
+          원어민 선생님이 수업 내내 영어만 쓰신다고 해서 처음엔 걱정이 많았는데, 오히려 아이가 맥락 속에서 영어를 이해하는 능력이 생겼어요. 3개월 만에 영어 독후감을 혼자 써올 때 정말 깜짝 놀랐습니다. 소수정예라 선생님이 우리 아이를 정말 꼼꼼히 봐주시는 것도 큰 장점이에요.
+        </p>
+        <div class="review-author">박현아 학부모 <span>· 초등 5학년 자녀</span></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">
+          대형 어학원 몇 곳을 다녔는데, 아이가 수업 중에 말할 기회가 거의 없었어요. 여기는 6명 소수정예라 아이가 수업 내내 말하고 돌아옵니다. 목소리가 커지고 발음이 확연히 좋아졌고, 무엇보다 영어가 재미있어졌다고 스스로 말해요. 강력 추천합니다.
+        </p>
+        <div class="review-author">이승연 학부모 <span>· 초등 3학년 자녀</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑦ 혜택 -->
+<section class="section benefit">
+  <div class="section-inner">
+    <span class="section-label">참가 혜택</span>
+    <h2 class="section-title">설명회에 오시기만 해도<br>특별한 혜택이 기다립니다</h2>
+    <div class="divider"></div>
+
+    <div class="benefit-box">
+      <div class="benefit-icon">🎁</div>
+      <div class="benefit-title">참가자 전원<br>1회 무료 체험 수업권 제공</div>
+      <p class="benefit-desc">
+        설명회에 참석하신 모든 분께 <strong>원어민 강사 1:1 말하기 체험 수업권(1회)</strong>을 드립니다.<br>
+        실제 수업을 직접 경험해 보시고 결정하세요. 부담 없이 오세요.
+      </p>
+    </div>
+
+    <div class="benefit-list">
+      <div class="benefit-item">
+        <div class="dot"></div>
+        <p>무료 체험 수업권 1회 (정가 50,000원 상당)</p>
+      </div>
+      <div class="benefit-item">
+        <div class="dot"></div>
+        <p>우리 아이 영어 레벨 무료 진단 테스트</p>
+      </div>
+      <div class="benefit-item">
+        <div class="dot"></div>
+        <p>원장님 1:1 개별 교육 상담 우선 예약</p>
+      </div>
+      <div class="benefit-item">
+        <div class="dot"></div>
+        <p>당일 등록 시 입학금 전액 면제 혜택</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑧ 하단 CTA -->
+<section class="cta-section" id="apply">
+  <div class="section-inner" style="text-align:center;">
+    <span class="section-label">지금 신청하세요</span>
+    <h2 class="section-title">선착순 20명, 마감 전에<br>자리를 확보하세요</h2>
+    <div class="divider" style="margin:16px auto 20px;"></div>
+    <p class="section-desc" style="margin-bottom:32px;">
+      2026년 4월 5일(일) 오전 11시 · 스마트 영어학원 2층 세미나실<br>
+      신청은 1분도 안 걸립니다. 지금 바로 이름과 연락처만 남겨주세요.
+    </p>
+    <a href="#" class="cta-btn">
+      지금 바로 무료 신청하기 →
+      <span class="cta-badge">선착순 20명 · 참가비 무료 · 체험 수업권 증정</span>
+    </a>
+    <p style="margin-top:20px;font-size:0.82rem;color:var(--gray-600);">
+      문의 전화: 031-000-0000 · 평일 오전 10시 – 오후 8시
+    </p>
+  </div>
+</section>
+
+<footer>
+  <p>스마트 영어학원 | 경기도 성남시 분당구 판교</p>
+  <p>대표: 김지현 | 사업자등록번호: 000-00-00000</p>
+  <p style="margin-top:8px;">© 2026 스마트 영어학원. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
