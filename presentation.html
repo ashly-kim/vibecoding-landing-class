@@ -262,6 +262,18 @@ svg.li-svg{stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;fill:none
 .faq-card{background:white;border-radius:14px;padding:18px 22px;border:1.5px solid #E2E8F0;transition:all .35s cubic-bezier(.4,0,.2,1)}
 .faq-card.dim{opacity:.28;filter:blur(.5px) saturate(.3);transform:scale(.97)}
 .faq-card.active{border-width:3px;transform:scale(1.02);box-shadow:0 12px 32px rgba(37,99,235,.15)}
+
+/* Tool carousel marquee */
+.carousel-row{overflow:hidden;width:100%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,black 6%,black 94%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,black 6%,black 94%,transparent 100%)}
+.carousel-track{display:flex;gap:16px;width:max-content;animation:scroll-left 38s linear infinite}
+.carousel-track.right{animation:scroll-right 44s linear infinite}
+.carousel-track.fast{animation-duration:32s}
+@keyframes scroll-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes scroll-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.tool-pill{background:white;border-radius:14px;padding:18px 26px;display:flex;align-items:center;gap:14px;white-space:nowrap;box-shadow:0 2px 10px rgba(15,23,42,.06);flex-shrink:0;border:1px solid #F1F5F9}
+.tool-pill .pill-cat{font-size:10px;font-weight:700;color:#94A3B8;letter-spacing:.6px;text-transform:uppercase;margin-bottom:3px}
+.tool-pill .pill-name{font-size:17px;font-weight:700;color:#1E293B}
+.tool-pill .pill-emoji{font-size:28px;line-height:1}
 </style>
 </head>
 <body>
@@ -812,11 +824,100 @@ svg.li-svg{stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;fill:none
   </div>
 </div>
 
-<!-- SLIDE 13: TOOLS LANDSCAPE -->
-<div class="slide bg-b" data-slide="13">
-  <div class="inner">
+<!-- SLIDE 13: TOOLS LANDSCAPE (CAROUSEL) -->
+<div class="slide bg-b">
+  <div class="inner" style="gap:18px">
     <h2 class="a1">바이브코딩 툴, <span class="tb">이렇게나 많습니다</span></h2>
     <p class="sub a2">지금 이 순간에도 새로운 툴이 쏟아지고 있습니다</p>
+    <div class="a3" style="width:100%;margin-top:10px;display:flex;flex-direction:column;gap:14px">
+      <!-- Row 1: scroll left -->
+      <div class="carousel-row">
+        <div class="carousel-track">
+          <div class="tool-pill"><span class="pill-emoji">⚡</span><div><div class="pill-cat">CODE EDITOR</div><div class="pill-name">Cursor</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🌊</span><div><div class="pill-cat">CODE EDITOR</div><div class="pill-name">Windsurf</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">☁️</span><div><div class="pill-cat">BROWSER CODING</div><div class="pill-name">Replit</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">✨</span><div><div class="pill-cat">AI PLATFORM</div><div class="pill-name">Genspark</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🐙</span><div><div class="pill-cat">CODE ASSIST</div><div class="pill-name">GitHub Copilot</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">⚡</span><div><div class="pill-cat">FULLSTACK</div><div class="pill-name">Bolt.new</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🖥️</span><div><div class="pill-cat">UI EXPERT</div><div class="pill-name">V0 by Vercel</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">✏️</span><div><div class="pill-cat">DESIGN BUILDER</div><div class="pill-name">Framer AI</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">📱</span><div><div class="pill-cat">APP BUILDER</div><div class="pill-name">Lovable</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🤖</span><div><div class="pill-cat">AI AGENT</div><div class="pill-name">Claude Code</div></div></div>
+          <!-- Duplicate for seamless loop -->
+          <div class="tool-pill"><span class="pill-emoji">⚡</span><div><div class="pill-cat">CODE EDITOR</div><div class="pill-name">Cursor</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🌊</span><div><div class="pill-cat">CODE EDITOR</div><div class="pill-name">Windsurf</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">☁️</span><div><div class="pill-cat">BROWSER CODING</div><div class="pill-name">Replit</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">✨</span><div><div class="pill-cat">AI PLATFORM</div><div class="pill-name">Genspark</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🐙</span><div><div class="pill-cat">CODE ASSIST</div><div class="pill-name">GitHub Copilot</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">⚡</span><div><div class="pill-cat">FULLSTACK</div><div class="pill-name">Bolt.new</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🖥️</span><div><div class="pill-cat">UI EXPERT</div><div class="pill-name">V0 by Vercel</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">✏️</span><div><div class="pill-cat">DESIGN BUILDER</div><div class="pill-name">Framer AI</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">📱</span><div><div class="pill-cat">APP BUILDER</div><div class="pill-name">Lovable</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🤖</span><div><div class="pill-cat">AI AGENT</div><div class="pill-name">Claude Code</div></div></div>
+        </div>
+      </div>
+      <!-- Row 2: scroll right -->
+      <div class="carousel-row">
+        <div class="carousel-track right">
+          <div class="tool-pill"><span class="pill-emoji">📦</span><div><div class="pill-cat">NO-CODE</div><div class="pill-name">Webflow</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🫧</span><div><div class="pill-cat">NO-CODE</div><div class="pill-name">Bubble</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">⚙️</span><div><div class="pill-cat">APP AUTOMATION</div><div class="pill-name">Glide</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🧩</span><div><div class="pill-cat">APP AUTOMATION</div><div class="pill-name">Softr</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🔗</span><div><div class="pill-cat">AUTOMATION</div><div class="pill-name">Make.com</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">⚡</span><div><div class="pill-cat">AUTOMATION</div><div class="pill-name">Zapier</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">📝</span><div><div class="pill-cat">DOC AI</div><div class="pill-name">Notion AI</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">💬</span><div><div class="pill-cat">GENERAL AI</div><div class="pill-name">ChatGPT</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🔍</span><div><div class="pill-cat">SEARCH AI</div><div class="pill-name">Perplexity</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🎨</span><div><div class="pill-cat">IMAGE AI</div><div class="pill-name">Midjourney</div></div></div>
+          <!-- Duplicate -->
+          <div class="tool-pill"><span class="pill-emoji">📦</span><div><div class="pill-cat">NO-CODE</div><div class="pill-name">Webflow</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🫧</span><div><div class="pill-cat">NO-CODE</div><div class="pill-name">Bubble</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">⚙️</span><div><div class="pill-cat">APP AUTOMATION</div><div class="pill-name">Glide</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🧩</span><div><div class="pill-cat">APP AUTOMATION</div><div class="pill-name">Softr</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🔗</span><div><div class="pill-cat">AUTOMATION</div><div class="pill-name">Make.com</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">⚡</span><div><div class="pill-cat">AUTOMATION</div><div class="pill-name">Zapier</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">📝</span><div><div class="pill-cat">DOC AI</div><div class="pill-name">Notion AI</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">💬</span><div><div class="pill-cat">GENERAL AI</div><div class="pill-name">ChatGPT</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🔍</span><div><div class="pill-cat">SEARCH AI</div><div class="pill-name">Perplexity</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🎨</span><div><div class="pill-cat">IMAGE AI</div><div class="pill-name">Midjourney</div></div></div>
+        </div>
+      </div>
+      <!-- Row 3: scroll left, faster -->
+      <div class="carousel-row">
+        <div class="carousel-track fast">
+          <div class="tool-pill"><span class="pill-emoji">🎬</span><div><div class="pill-cat">VIDEO AI</div><div class="pill-name">Runway</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">✨</span><div><div class="pill-cat">AI PLATFORM</div><div class="pill-name">Genspark</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🪄</span><div><div class="pill-cat">DESIGN AI</div><div class="pill-name">Canva AI</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🖥️</span><div><div class="pill-cat">UI EXPERT</div><div class="pill-name">V0 by Vercel</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">⚡</span><div><div class="pill-cat">CODE EDITOR</div><div class="pill-name">Cursor</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🤖</span><div><div class="pill-cat">AI AGENT</div><div class="pill-name">Claude Code</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">💬</span><div><div class="pill-cat">CHAT AI</div><div class="pill-name">Gemini</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">📊</span><div><div class="pill-cat">DOC AI</div><div class="pill-name">Tome</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🎵</span><div><div class="pill-cat">MUSIC AI</div><div class="pill-name">Suno</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🧠</span><div><div class="pill-cat">RESEARCH AI</div><div class="pill-name">NotebookLM</div></div></div>
+          <!-- Duplicate -->
+          <div class="tool-pill"><span class="pill-emoji">🎬</span><div><div class="pill-cat">VIDEO AI</div><div class="pill-name">Runway</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">✨</span><div><div class="pill-cat">AI PLATFORM</div><div class="pill-name">Genspark</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🪄</span><div><div class="pill-cat">DESIGN AI</div><div class="pill-name">Canva AI</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🖥️</span><div><div class="pill-cat">UI EXPERT</div><div class="pill-name">V0 by Vercel</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">⚡</span><div><div class="pill-cat">CODE EDITOR</div><div class="pill-name">Cursor</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🤖</span><div><div class="pill-cat">AI AGENT</div><div class="pill-name">Claude Code</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">💬</span><div><div class="pill-cat">CHAT AI</div><div class="pill-name">Gemini</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">📊</span><div><div class="pill-cat">DOC AI</div><div class="pill-name">Tome</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🎵</span><div><div class="pill-cat">MUSIC AI</div><div class="pill-name">Suno</div></div></div>
+          <div class="tool-pill"><span class="pill-emoji">🧠</span><div><div class="pill-cat">RESEARCH AI</div><div class="pill-name">NotebookLM</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="ribbon ribbon-d a4" style="margin-top:8px">🌊 매일 새로운 툴이 쏟아져나옵니다 — 다 쓸 필요는 없어요</div>
+  </div>
+</div>
+
+<!-- NEW SLIDE: 3 TOOLS HIGHLIGHTED (STATIC) -->
+<div class="slide bg-b">
+  <div class="inner">
+    <h2 class="a1">이 중에서, <span class="tb">오늘 직접 체험할 3가지 툴</span></h2>
+    <p class="sub a2">표시된 3개에만 집중 — 학원 운영에 가장 실용적인 조합입니다</p>
     <div class="grid-4 a3" style="margin-top:18px">
       <div class="tool-card"><div class="tool-cat">CODE EDITOR</div><div class="tool-name">⚡ Cursor, Windsurf</div></div>
       <div class="tool-card"><div class="tool-cat">BROWSER CODING</div><div class="tool-name">☁️ Replit</div></div>
@@ -826,12 +927,12 @@ svg.li-svg{stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;fill:none
       <div class="tool-card feat-b"><div class="tool-tag">✓ 오늘 실습</div><div class="tool-cat tb">UI EXPERT</div><div class="tool-name">🖥️ V0 by Vercel</div></div>
       <div class="tool-card"><div class="tool-cat">DESIGN BUILDER</div><div class="tool-name">✏️ Framer AI</div></div>
       <div class="tool-card"><div class="tool-cat">APP BUILDER</div><div class="tool-name">📱 Lovable</div></div>
-      <div class="tool-card feat-o"><div class="tool-tag o">🔥 오늘 실습</div><div class="tool-cat to">AI CODING AGENT</div><div class="tool-name">🤖 Claude Code</div></div>
+      <div class="tool-card feat-o"><div class="tool-tag o">🔥 오늘 실습</div><div class="tool-cat to">AI · 데스크탑 앱</div><div class="tool-name">🤖 Claude</div></div>
       <div class="tool-card"><div class="tool-cat">NO-CODE BUILDER</div><div class="tool-name">📦 Webflow, Bubble</div></div>
       <div class="tool-card"><div class="tool-cat">APP AUTOMATION</div><div class="tool-name">⚙️ Glide, Softr</div></div>
       <div class="tool-card"><div class="tool-cat">AUTOMATION</div><div class="tool-name">🔗 Make.com, Zapier</div></div>
     </div>
-    <div class="ribbon ribbon-d a4">⭐ 표시된 3가지 툴(Genspark, V0, Claude Code)을 오늘 직접 체험합니다</div>
+    <div class="ribbon ribbon-d a4">⭐ 표시된 3가지 툴(Genspark, V0, Claude)을 오늘 직접 체험합니다</div>
   </div>
 </div>
 
